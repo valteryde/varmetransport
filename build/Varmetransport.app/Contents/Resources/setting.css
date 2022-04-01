@@ -1,0 +1,227 @@
+
+:root {
+  --menu-width:150px;
+  --menu-padding: 10px;
+  --section-width:75%;
+}
+
+body {
+  background: lightblue;
+  font-family: helvetica;
+  margin: 0;
+}
+
+
+.wrapper {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  inset:0;
+  overflow: scroll;
+}
+
+.menu {
+  position: fixed;
+  inset: 0;
+  padding: var(--menu-padding);
+  padding-top: 25px;
+  font-size: 1.25em;
+  text-align: left;
+  width: var(--menu-width);
+  background: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu::after {
+  content:"";
+  position: absolute;
+  inset:0;
+  left:100%;
+  width:0;
+  height:100%;
+  background: blue;
+  transition: width .3s;
+}
+
+.menu.animate::after {
+  width:calc(100vw - var(--menu-width))
+}
+
+.menu a {
+  margin-bottom: 15px;
+  color: black;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  color: grey;
+}
+
+.container {
+  position: absolute;
+  left: calc(var(--menu-padding)*2 + var(--menu-width));
+  width: calc(100vw - var(--menu-padding)*2 - var(--menu-width));
+  overflow:scroll;
+}
+
+/* settings */
+.settings-container {
+  background:lightblue;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-section {
+  width:var(--section-width);
+  margin-top:20px;
+  border-bottom: solid 2px white;
+  position: relative;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  min-height:20px;
+  flex-direction: column;
+}
+
+.settings-section:last-of-type {
+  margin-bottom:50px;
+}
+
+.settings-section > div {
+  margin-bottom:15px;
+  position: relative;
+}
+.settings-section > div:last-child {
+  margin-bottom:-5px;
+}
+
+div[data-type="checkbox"] {
+  position: relative;
+  display:flex;
+  flex-direction: row;
+}
+
+div[data-type="checkbox"] > button {
+  min-width:40px;
+  min-height:40px;
+  max-height:40px;
+  margin:0;
+  position: absolute;
+  top:50%;
+  transform:translateY(-50%);
+  border:solid 2px black;
+  border-radius:15px;
+  cursor:pointer;
+  background:white;
+  transition: .1s background;
+}
+
+div[data-type="checkbox"] > button > svg {
+  width:60%;
+  height:60%; 
+  position: absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%, -50%);
+  opacity: 0;
+}
+
+
+div[data-type="checkbox"] > p {
+  vertical-align: middle;
+  margin-left: 50px;
+}
+
+div[data-type="checkbox"] > button.toggled {
+  background:rgb(50,50,50)!important;
+}
+
+div[data-type="checkbox"] > button.toggled > svg {
+  opacity: 1;
+}
+
+div[data-type="text"] {
+  font-style: italic;
+}
+
+div[data-type="text"]:last-child {
+  margin-bottom: 15px;
+}
+
+div[data-type="multiple"] {
+  width:100%;
+  display:flex;
+  flex-direction: column;
+}
+
+div[data-type="multiple"] > p, div[data-type="input"] > p {
+  position: relative;
+  margin:5px;
+  margin-left: 0;
+  margin-right:0;
+}
+
+
+div[data-type="multiple"] > .select-container {
+  position: relative;
+  width:100%;
+  min-height:40px;
+}
+
+
+div[data-type="multiple"] select {
+  position: absolute;
+  left:0;
+  font-size:1em;
+  top:0;
+  height:100%;
+  width:100%;
+  border-radius: 4px;
+  display: inline-block;
+  padding: 0.5em 3.5em 0.5em 1em;
+  color:black;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+div[data-type="multiple"] svg {
+  position: absolute;
+  right: 10px;
+  top:50%;
+  transform:translateY(-50%);
+}
+
+
+div[data-type="multiple"] select:focus {
+  border-color: green;
+  outline: 0;
+}
+
+div[data-type="input"] {
+  width:100%;
+  display:flex;
+  flex-direction: column;
+}
+
+div[data-type="input"] input {
+  position: relative;
+  inset:0;
+  height:40px;
+  width:calc(100% - 14px);
+  padding-left:10px;
+  font-size:.75em;
+  margin-bottom:5px;
+  border:solid thin black;
+  border-radius:4px;
+}
+
+div[data-type="input"]:last-child input {
+  margin-bottom: 20px;
+}
