@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    {python}init(){end}
+
+    <div class="wrapper">
+
+      <div id="menu" class="menu">
+
+        <a href="#" onclick="return;document.getElementById('menu').classList.toggle('animate')">Generalt</a>
+        <a href="#" onclick="change('index')">Gem og gå tilbage</a>
+
+      </div>
+
+      <div class="container">
+
+        <!-- <div>
+          <div data-type="checkbox" data-default="0" data-id="test1">
+            Brug to lag
+          </div>
+          <div data-type="text">
+            Tidsændringen burder være lav jf. eulers intergration
+          </div>
+          <div data-type="checkbox" data-default="0" data-id="test2">
+            Vis simulering efter nødstop
+          </div>
+
+          <div data-type="multiple" data-id="test3">
+            Titel er vildt mand
+            <div>Valter</div>
+            <div>Sofie</div>
+            <div>Lasse</div>
+            <div>Simon</div>
+            <div>Rasmus</div>
+          </div>
+
+          <div data-type="input" data-placeholder="Valter er sej" data-id="test5">
+            Valter
+          </div>
+        </div> -->
+
+        <div>
+          <h1>Egenskaber v/ simulering</h1>
+          <div data-type="text">
+            Tidsændringen burder være lav
+          </div>
+          <div data-type="input" data-placeholder="Gerne imellem [0.005 - 0.00005]" data-id="tick">
+            Tidsinterval
+          </div>
+
+          <div data-type="input" data-placeholder="I celcius" data-id="start_temp">
+            Starttemperatur
+          </div>
+
+          <div data-type="multiple" data-id="cellsize">
+            Gitter størrelse (Størrelsen afgører simuleringstiden og finheden)
+            <div>50x50</div>
+            <div>100x100</div>
+            <div>150x150</div>
+            <div>200x200</div>
+            <div>300x300</div>
+            <div>400x400</div>
+            <div>500x500</div>
+            <div>1000x1000</div>
+          </div>
+
+          <div data-type="text">
+            Husk at hver felt har længden og bredden 0,5 meter
+          </div>
+
+          <div data-type="checkbox" data-id="filter">
+            Andvend sløring på resultatet
+          </div>
+
+          <div data-type="text">
+            Sløring fungerer ikke på animation, pga tidskost.
+          </div>
+
+          <div data-type="checkbox" data-id="render3d">
+            Andvend en 3d gengivelse af resultatet
+          </div>
+
+          <div data-type="text">
+            3D gengivelsen virker ikke ved animationerne.
+          </div>
+
+        </div>
+
+        <div>
+
+          <h1>Animation</h1>
+          <div data-type="checkbox" data-id="restoggle">
+            Andvend brugerdefineret skærmstørrelse (forstørrelse)
+          </div>
+          <div data-type="input" data-placeholder="Efterlad blank ved automatisk" data-id="upscale">
+            Forstørrelse
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+    <script src="{python}url_for('settings.js'){end}" charset="utf-8"></script>
+    <script type="text/javascript">
+        setTimeout(()=>{
+          init('.container');
+          set_data({python}echo(settings){end})
+        });
+    </script>
+
+  </body>
+</html>
