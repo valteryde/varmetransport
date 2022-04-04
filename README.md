@@ -8,8 +8,9 @@ I zip-filen gemmer der sig 2 mapper: Build og src.
 
 ### Mappen ”src”
 Src er mappen hvor alt ”source coden” gemmer sig. Hvis man ønsker at køre programmet manuelt, kan man åbne terminalen og give det et forsøg med kommandoen
-   '''>>>python main.py'''
-Hvis ikke kan man åbne filen i en tekst redigerings program og opdage hvordan programmet virker. Tech stacken er således: Python på bagsiden, javascript på frontenden. Kommunikationen imellem de to sker ved http og sockets. GUI er en ”webrender” ligesom chrome, som viser html og css. 
+      '''>>>python main.py'''
+Hvis ikke kan man åbne filen i en tekst redigerings program og opdage hvordan programmet virker. Tech stacken er således: Python på bagsiden, javascript på frontenden. Kommunikationen imellem de to sker ved http og sockets. GUI anvender en ”webrender” ligesom chrome, som viser html og css. Derudover så bruges pakken ”pygame” til animation og visning af simuleringen. For 3D plot bruges pakken ”matplotlib”. 
+
 
 ### Mappen ”build”
 I denne mappe findes tre filer. Her skal man vælge den der passer til ens styresystem. Bruger man windows skal man bruge ”varmetransport_windows.zip”. Når man har ”åbnet” zip-filen skal man navigere hen til filen main.exe. Denne skal man bare trykke på. NB: Windows versionen er en demo version og har dermed et mindre udvalg af funktioner. Bruger man derimod MacOS, altså apples styresystem, så har man to muligheder. Enten kan man åbne programmet varmetransport, hvoraf programmet burde starte. Eller så kan man ”åbne” zip-filen varmetransport_darwin.zip.
